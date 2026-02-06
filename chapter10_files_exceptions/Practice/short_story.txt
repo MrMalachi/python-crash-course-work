@@ -1,0 +1,6 @@
+    I love programming because it allows me to build interesting software programs that are practical. I am studying,
+    learning, and implementing Python concepts for at least 2hrs per day because I am a software developer. There is
+    a lot of chatter circulating around artificial intelligence and how it will cause software engineering as a
+    profession to become obsolete. I challenge anyone making this claim because as far as I am concerned, this actually
+    creates jobs for people in the technology industry to maintain A.I. systems through the AI lifecycle or Machine
+    Learning Operations.

@@ -1,0 +1,14 @@
+WALMART Receipt (Sample)
+Date: 2026-01-12
+Store: Walmart Supercenter - Stafford, VA
+----------------------------------------
+2  Great Value Milk (1 gal)         $6.56
+1  Bananas (2.3 lb)                 $1.47
+1  Rotisserie Chicken               $6.98
+1  Dawn Dish Soap                   $3.28
+1  Equate Ibuprofen (100ct)         $6.74
+----------------------------------------
+Subtotal                            $25.03
+Tax                                  $1.50
+Total                               $26.53
+Payment: Debit **** 9876

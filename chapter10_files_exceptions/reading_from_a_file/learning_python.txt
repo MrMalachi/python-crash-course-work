@@ -1,0 +1,4 @@
+In Python you can create programs to fulfill certain tasks.
+In Python you can use print statements to display messages to the user in the console.
+In Python you can use conditional statements, such as if-elif chains to decide whether or not code should be executed.
+In Python you can utilize functions in large programs to help reduce complexity and adhere to the D.R.Y. principle.

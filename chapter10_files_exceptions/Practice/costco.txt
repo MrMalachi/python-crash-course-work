@@ -1,0 +1,14 @@
+COSTCO Receipt (Sample)
+Date: 2026-01-12
+Warehouse: Costco - Springfield, VA
+----------------------------------------
+1  Kirkland Water (40-pack)         $4.49
+1  Chicken Bake (Food Court)        $3.99
+1  Kirkland Paper Towels (12-roll) $19.99
+1  Organic Mixed Greens             $5.49
+1  AA Batteries (48-pack)          $17.99
+----------------------------------------
+Subtotal                            $51.95
+Tax                                  $2.60
+Total                               $54.55
+Payment: Mastercard **** 4567
