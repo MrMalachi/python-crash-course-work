@@ -292,3 +292,5 @@ datetime.datetime(2026, 2, 10, 0, 43, 31, 241715, tzinfo=datetime.timezone.utc)
 <QuerySet [<Entry: The opening is the first part of the game, roughly...>, <Entry: In the opening phase of the game, it's important t...>]>`\
 ```
 * Each time you modify your models, you'll need to restart the shell to see the effects of those changes (CTRL-D)
+
+## Making Pages: The Learning Log Home Page
