@@ -30,7 +30,9 @@
                          table when the corresponding row in the parent table is deleted
 * **Queryset** - a collection of objects (records) from a database, a core component of the Django ORM 
                  (Object-Relational Model)
-* 
+* **URL Pattern** - describes the way a URL is laid out. It also tells Django what to look for when matching a browser
+                    request with a site URL
+* **HTML Paragraphs (< p >)** - this tag signifies a paragraph (opening & closing)  
 
 ## Setting Up a Project
 * When starting to work on something as significant as a web app, you first
@@ -84,7 +86,7 @@
 * Activate the virtual environment, and then run the `startapp` command:
   1. `source ll_env/bin/activate`
   2. `python manage.py startapp learning_logs`
-* The command _startapp_ tells Django to create the infrastructure needed tp build an app
+* The command _startapp_ tells Django to create the infrastructure needed to build an app
 
 ### *Defining Models*
 * The `models.py` files can be used to define the data we want to manage in our app
@@ -111,7 +113,7 @@ class Topic(models.Model):
     instance of that model
 
 ### *Activating Models*
-* To use personal models, you habe to tell Django to include your app in the overall project
+* To use personal models, you have to tell Django to include your app in the overall project
 
 **settings.py**
 ```python
@@ -181,7 +183,7 @@ from .models import Topic
 # Register your models here.
 admin.site.register(Topic)
 ```
-* This code first imports the model you want to register, `Topic`. The dot in from of `models` tell Django to look for
+* This code first imports the model you want to register, `Topic`. The dot in front of `models` tell Django to look for
   _models.py_ in the same directory as _admin.py_
 * The code `admin.site.register()` tells Django to manage our model through the admin site
 * To use the superuser account to access the admin site, go to: http://localhost:8000/admin/
@@ -294,3 +296,83 @@ datetime.datetime(2026, 2, 10, 0, 43, 31, 241715, tzinfo=datetime.timezone.utc)
 * Each time you modify your models, you'll need to restart the shell to see the effects of those changes (CTRL-D)
 
 ## Making Pages: The Learning Log Home Page
+* Making web pages with Django consists of 3 stages:
+  1. Defining the URLs - It also tells Django what to look for when matching a browser request with a site _URL_
+  2. Writing views - Each URL is mapped to a particular _view_. The _view_ function retrieves and processes the data 
+                     needed for that page
+  3. Writing templates - a template is used to render the web page, which contains the overall structure of the page
+
+### *Mapping a URL*
+* Users request pages by entering URLs into a browser and clicking links, so a URL needs to be decided
+  *The homepage URL is first: it's the base URL people use to access the project
+
+**ll_project/urls.py**
+```python
+"""
+URL configuration for ll_project project.
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/6.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path("", include("learning_logs.urls")),
+]
+```
+
+**learning_logs/urls.py**
+```python
+"""Defines URL patterns for learning_logs."""
+
+from django.urls import path
+
+from . import views
+
+app_name = "learning_logs"
+urls_patterns = [
+    # Home page
+    path("", views.index, name="index"),
+]
+```
+
+### *Writing a View*
+* A view function takes in information from a request, prepares the data needed to generate a page, and then sends the 
+  data back to the browser. It often does this by using a template that defines what the page will look like
+
+**views.py**
+```python
+from django.shortcuts import render
+
+# Create your views here.
+def index(request):
+    """The home page for Learning Log."""
+    return render(request, "learning_logs/index.html")
+```
+
+### *Writing a Template*
+* A template defines what the page should look like, and Django fills the relevant data each time the page is requested
+  * A template allows you to access any data provided by the view
+
+**index.html**
+```html
+</p>Learning Log<p>
+
+<p>Learning Log helps you keep track of your learning, for any topic you're interested in.</p>
+```
+* When working on larger projects: 
+  * Models - a database specialists job
+  * Views - a programmers job
+  * Templates - a frontend specialists job

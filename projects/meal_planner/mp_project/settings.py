@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # My apps.
+    "meal_plans",
+    #Default Django apps.
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
